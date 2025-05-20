@@ -5,7 +5,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.common.action_chains import ActionChains
 import time
 
-driverPath = '/home/svyat/user_path/msedgedriver' #path to driver executable
+driverPath = '/var/jenkins_home/workspace/PyTests_CI_CD/MEDriver/msedgedriver' #path to driver executable
 driverService = Service(driverPath) #service - parameter for driver initialisation
 options = webdriver.EdgeOptions() #creating options for insecure
 options.accept_insecure_certs = True #set insecure parameter to true
