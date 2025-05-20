@@ -1,7 +1,15 @@
 pipeline {
-  agent any
+  agent {
+    docker {
+      image 'python3'
+      label 'python-agent'
+    }
+  }
   options {
     buildDiscarder(logRotator(numToKeepStr:'10', artifactNumToKeepStr:'10', daysToKeepStr:'20', artifactDaysToKeepStr:'20'))
+  }
+  enviroment {
+    
   }
   stages {
     stage("Locust test") {
