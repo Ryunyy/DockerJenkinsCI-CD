@@ -27,3 +27,12 @@ apt-get install python3-loguru
 apt install python3-locust
 
 apt install python3-selenium
+
+
+ipmitool -C 17 -H localhost -p 2623 -I lanplus -U root -P 0penBmc user set name 10 testuser
+
+ipmitool -C 17 -H localhost -p 2623 -I lanplus -U root -P 0penBmc user set password 10 [user10]
+
+ipmitool -C 17 -H localhost -p 2623 -I lanplus -U root -P 0penBmc user enable 10
+
+busctl set-property xyz.openbmc_project.User.Manager/xyz/openbmc_project/user xyz.openbmc_project.User.AccountPolicy MaxLoginAttemptBeforeLockout q 3
