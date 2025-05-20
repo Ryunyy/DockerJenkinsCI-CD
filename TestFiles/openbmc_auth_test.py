@@ -8,6 +8,8 @@ import time
 driverPath = '/var/jenkins_home/workspace/PyTests_CI_CD/MEDriver/msedgedriver' #path to driver executable
 driverService = Service(driverPath) #service - parameter for driver initialisation
 options = webdriver.EdgeOptions() #creating options for insecure
+options.add_argument("headless") # run without head
+options.add_argument("disable-gpu") # run without gpu
 options.accept_insecure_certs = True #set insecure parameter to true
 driver = webdriver.Edge(options=options,service=driverService) #driver itself
 action = ActionChains(driver) #action for performing action chains
