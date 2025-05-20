@@ -25,3 +25,5 @@ apt-get install python3-pytest
 apt-get install python3-loguru
 
 apt install python3-locust
+
+apt install python3-selenium
