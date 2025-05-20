@@ -1,5 +1,6 @@
 from locust import HttpUser, between, task
 from loguru import logger
+import json
 
 host = '0.0.0.0'
 port = 2443
