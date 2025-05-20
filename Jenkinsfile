@@ -17,7 +17,7 @@ pipeline {
         fi
         sleep 95s
 
-        locust -f /home/admin/agent/workspace/DockerJenkinsCI-CD/Test Files/locustfile.py --headless --users 20 --spawn-rate 5 --run-time 3m --stop-timeout 20s --host https://127.0.0.1:2443 --exit-code-on-error 0 --json --skip-log > home/admin/agent/workspace/DockerJenkinsCI-CD/Test Reports/locust_report.json
+        locust -f /var/jenkins_home/workspace/PyTests CI_CD/Test Files/locustfile.py --headless --users 20 --spawn-rate 5 --run-time 3m --stop-timeout 20s --host https://127.0.0.1:2443 --exit-code-on-error 0 --json --skip-log > /var/jenkins_home/workspace/PyTests CI_CD/Test Reports/locust_report.json
         '''
       }
     }
@@ -34,7 +34,7 @@ pipeline {
         fi
         sleep 95s
 
-         pytest --junit-xml="home/admin/agent/workspace/DockerJenkinsCI-CD/Test Reports/redfish_report.xml" --disable-warnings -rf /home/admin/agent/workspace/DockerJenkinsCI-CD/Test Files/redfish_pytest.py
+         pytest --junit-xml="/var/jenkins_home/workspace/PyTests CI_CD/Test Reports/redfish_report.xml" --disable-warnings -rf /var/jenkins_home/workspace/PyTests CI_CD/Test Files/redfish_pytest.py
         '''
       }
     }
@@ -51,7 +51,7 @@ pipeline {
         fi
         sleep 95s
 
-        pytest --junit-xml="home/admin/agent/workspace/DockerJenkinsCI-CD/Test Reports/obmc_auth_report.xml" --disable-warnings home/admin/agent/workspace/DockerJenkinsCI-CD/Test Files/openbmc_auth_test.py
+        pytest --junit-xml="/var/jenkins_home/workspace/PyTests CI_CD/Test Reports/obmc_auth_report.xml" --disable-warnings /var/jenkins_home/workspace/PyTests CI_CD/Test Files/openbmc_auth_test.py
         '''
       }
     }
