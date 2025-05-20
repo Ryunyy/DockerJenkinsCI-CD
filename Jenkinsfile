@@ -5,16 +5,18 @@ pipeline {
   }
   stages {
     stage("Qemu launch"){
-      sh '''
-      qemu-system-arm -m 256 -M romulus-bmc -nographic -serial none -monitor none -drive file=/var/jenkins_home/workspace/PyTests_CI_CD/romulus/obmc-phosphor-image-romulus-20250520091100.static.mtd,format=raw,if=mtd -net nic -net user,hostfwd=:0.0.0.0:2222-:22,hostfwd=:0.0.0.0:2443-:443,hostfwd=udp:0.0.0.0:2623-:623,hostname=qemu &
-        QEMU_PID=$!
+      steps{
+        sh '''
+          qemu-system-arm -m 256 -M romulus-bmc -nographic -serial none -monitor none -drive file=/var/jenkins_home/workspace/PyTests_CI_CD/romulus/obmc-phosphor-image-romulus-20250520091100.static.mtd,format=raw,if=mtd -net nic -net user,hostfwd=:0.0.0.0:2222-:22,hostfwd=:0.0.0.0:2443-:443,hostfwd=udp:0.0.0.0:2623-:623,hostname=qemu &
+          QEMU_PID=$!
 
-        if ! kill -0 "$QEMU_PID" 2>/dev/null; then
+          if ! kill -0 "$QEMU_PID" 2>/dev/null; then
             echo "QEMU exited unexpectedly."
             exit 1
-        fi
-        sleep 300s #waiting while qemu starts
-      '''
+          fi
+          sleep 300s #waiting while qemu starts
+        '''
+      }
     }
     stage("Redfish test"){
       steps {
