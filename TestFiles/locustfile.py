@@ -6,7 +6,7 @@ port = 2443
 userName = 'root'
 userPass = '0penBmc'
 
-logPath = '/var/jenkins_home/workspace/PyTests CI_CD/Test Reports/locust_logs.log'
+logPath = '/var/jenkins_home/workspace/PyTests_CI_CD/TestReports/locust_logs.log'
 logger.add(logPath, level='DEBUG')
 
 class OBMCAPI(HttpUser):
