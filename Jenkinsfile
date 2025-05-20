@@ -14,7 +14,7 @@ pipeline {
             echo "QEMU exited unexpectedly."
             exit 1
         fi
-        sleep 100s
+        sleep 500s
 
          pytest --junit-xml="/var/jenkins_home/workspace/PyTests_CI_CD/TestReports/redfish_report.xml" --disable-warnings -rf /var/jenkins_home/workspace/PyTests_CI_CD/TestFiles/redfish_pytest.py
         '''
