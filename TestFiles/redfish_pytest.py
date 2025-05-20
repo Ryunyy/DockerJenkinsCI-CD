@@ -11,7 +11,7 @@ userName = 'root'
 userPass = '0penBmc'
 
 #path for log file
-logPath = '/home/svyat/Desktop/pytests/logs.log'
+logPath = 'var/jenkins_home/workspace/PyTests_CI_CD/TestReports/redfish_logs.log'
 logger.add(logPath, level='DEBUG')
 
 #fixture creating connection. disassemble headers and return bundle of status code and auth token
