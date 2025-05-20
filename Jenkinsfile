@@ -32,7 +32,7 @@ pipeline {
         fi
         sleep 300s #waiting while qemu starts
 
-        locust --headless --json --skip-log > /var/jenkins_home/workspace/PyTests_CI_CD/TestReports/locust_report.json -f /var/jenkins_home/workspace/PyTests_CI_CD/TestFiles/locustfile.py --host https://0.0.0.0:2443 --users 20 -r 5 -t 3m -s 20 --exit-code-on-error 0 
+        locust --headless --json --skip-log > /var/jenkins_home/workspace/PyTests_CI_CD/TestReports/locust_report.json -f /var/jenkins_home/workspace/PyTests_CI_CD/TestFiles/locustfile.py --host https://127.0.0.1:8081 --users 20 -r 5 -t 3m -s 20 --exit-code-on-error 0 
         '''
       }
     }
