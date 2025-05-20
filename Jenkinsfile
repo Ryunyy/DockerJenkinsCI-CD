@@ -16,7 +16,7 @@ pipeline {
         fi
         sleep 95s
 
-        locust -f /var/jenkins_home/workspace/PyTests_CI_CD/TestFiles/locustfile.py --headless --users 20 --spawn-rate 5 --run-time 3m --stop-timeout 20s --host https://127.0.0.1:2443 --exit-code-on-error 0 --json --skip-log > /var/jenkins_home/workspace/PyTests_CI_CD/TestReports/locust_report.json
+        locust -f /var/jenkins_home/workspace/PyTests_CI_CD/TestFiles/locustfile.py --headless --users 20 --spawn-rate 5 --run-time 3m --stop-timeout 20 --host https://127.0.0.1:2443 --exit-code-on-error 0 --json --skip-log > /var/jenkins_home/workspace/PyTests_CI_CD/TestReports/locust_report.json
         '''
       }
     }
