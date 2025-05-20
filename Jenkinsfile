@@ -14,7 +14,7 @@ pipeline {
             echo "QEMU exited unexpectedly."
             exit 1
         fi
-        sleep 500s #waiting while qemu starts
+        sleep 300s #waiting while qemu starts
 
          pytest --junit-xml="/var/jenkins_home/workspace/PyTests_CI_CD/TestReports/redfish_report.xml" --disable-warnings -rf /var/jenkins_home/workspace/PyTests_CI_CD/TestFiles/redfish_pytest.py
         '''
@@ -30,7 +30,7 @@ pipeline {
             echo "QEMU exited unexpectedly."
             exit 1
         fi
-        sleep 500s #waiting while qemu starts
+        sleep 300s #waiting while qemu starts
 
         locust --headless --json --skip-log > /var/jenkins_home/workspace/PyTests_CI_CD/TestReports/locust_report.json -f /var/jenkins_home/workspace/PyTests_CI_CD/TestFiles/locustfile.py --host https://0.0.0.0:2443 --users 20 -r 5 -t 3m -s 20 --exit-code-on-error 0 
         '''
@@ -47,7 +47,7 @@ pipeline {
             echo "QEMU exited unexpectedly."
             exit 1
         fi
-        sleep 500s #waiting while qemu starts
+        sleep 300s #waiting while qemu starts
 
         pytest --junit-xml="/var/jenkins_home/workspace/PyTests_CI_CD/TestReports/obmc_auth_report.xml" --disable-warnings /var/jenkins_home/workspace/PyTests_CI_CD/TestFiles/openbmc_auth_test.py
         '''
