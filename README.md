@@ -1,6 +1,6 @@
 # DockerJenkinsCI-CD
 
-1. docker network create jenkins
+1. ```docker network create jenkins```
 
 2. docker volume create jenkins-docker-certs
    
