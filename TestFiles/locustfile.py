@@ -23,7 +23,7 @@ class OBMCAPI(HttpUser):
 
         try:
             self.authToken = jdata['X-Auth-Token']
-            logger.info('Grated auth token = ' + str(self.authToken))
+            # logger.info('Grated auth token = ' + str(self.authToken))
             if self.authToken == "":
                 plug = 0
                 # logger.debug("Couldn't get auth token")
@@ -34,7 +34,7 @@ class OBMCAPI(HttpUser):
 
     @task
     def getRedfishInfo(self):
-        logger.info('User used auth token: ' + str(self.authToken))
+        # logger.info('User used auth token: ' + str(self.authToken))
         self.client.get(
             f'/{host}:{port}/redfish/v1/Systems/system',
             headers={"X-Auth-Token": self.authToken}, 
