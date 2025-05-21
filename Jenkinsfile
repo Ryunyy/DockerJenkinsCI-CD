@@ -7,7 +7,7 @@ pipeline {
     stage("Enviroment Configuration") {
       when{
         expression {
-          !test -f /var/jenkins_home/workspace/PyTests_CI_CD/initComlpete.txt
+          ![-f /var/jenkins_home/workspace/PyTests_CI_CD/initComlpete.txt]
         }
       }
       steps{
