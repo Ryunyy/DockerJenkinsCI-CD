@@ -7,7 +7,7 @@ pipeline {
     stage("Enviroment Configuration") {
       when{
         expression {
-          !fileExists('/var/jenkins_home/workspace/PyTests_CI_CD/initComlpete.txt')
+          fileExists('/var/jenkins_home/workspace/PyTests_CI_CD/initComlpete.txt') == false
         }
       }
       steps{
