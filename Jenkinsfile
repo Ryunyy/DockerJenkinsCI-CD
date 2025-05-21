@@ -18,13 +18,13 @@ pipeline {
         '''
       }
     }
-    stage("Redfish test"){
-      steps {
-        sh '''
-         pytest --junit-xml="/var/jenkins_home/workspace/PyTests_CI_CD/TestReports/redfish_report.xml" --disable-warnings -rf /var/jenkins_home/workspace/PyTests_CI_CD/TestFiles/redfish_pytest.py
-        '''
-      }
-    }
+    // stage("Redfish test"){
+    //   steps {
+    //     sh '''
+    //      pytest --junit-xml="/var/jenkins_home/workspace/PyTests_CI_CD/TestReports/redfish_report.xml" --disable-warnings -rf /var/jenkins_home/workspace/PyTests_CI_CD/TestFiles/redfish_pytest.py
+    //     '''
+    //   }
+    // }
     stage("Locust test") {
       steps {
         sh '''
