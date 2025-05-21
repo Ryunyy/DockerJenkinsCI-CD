@@ -7,7 +7,7 @@ pipeline {
     stage("Enviroment Configuration") {
       when{
         expression {
-          env.BUILD_ID == 1
+          !test -f /var/jenkins_home/workspace/PyTests_CI_CD/initComlpete.txt
         }
       }
       steps{
@@ -26,6 +26,8 @@ pipeline {
           ipmitool -C 17 -H localhost -p 2623 -I lanplus -U root -P 0penBmc user set password 10 [user10]
           ipmitool -C 17 -H localhost -p 2623 -I lanplus -U root -P 0penBmc user enable 10
           PATH=$PATH:/var/jenkins_home/workspace/PyTests_CI_CD/MEDriver/
+
+          touch /var/jenkins_home/workspace/PyTests_CI_CD/initComlpete.txt
         '''
       }
     }
