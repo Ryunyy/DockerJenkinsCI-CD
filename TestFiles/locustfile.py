@@ -19,7 +19,8 @@ class OBMCAPI(HttpUser):
             verify=False
         )
         jdata = response.headers
-        logger.info(response)
+        logger.info(response.status_code)
+        logger.info(response.text)
         #logger.info(jdata)
 
         try:
