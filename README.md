@@ -38,21 +38,23 @@ docker container run \
 
 ```apt-get update```
 
+```apt-get upgrade```
+
 ```apt install qemu-system-arm```
 
 ```apt-get install ipmitool```
 
 ```apt-get install python3```
 
-```apt install python3-pip```
+```apt-get install python3-pip```
 
 ```apt-get install python3-pytest```
 
 ```apt-get install python3-loguru```
 
-```apt install python3-locust```
+```apt-get install python3-locust```
 
-```apt install python3-selenium```
+```apt-get install python3-selenium```
 
 ```ipmitool -C 17 -H localhost -p 2623 -I lanplus -U root -P 0penBmc user set name 10 testuser```
 
