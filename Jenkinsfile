@@ -18,19 +18,19 @@ pipeline {
         '''
       }
     }
-    // stage("Redfish test"){
-    //   steps {
-    //     sh '''
-    //      ./python_env/bin/activate
-    //      pytest --junit-xml="/var/jenkins_home/workspace/PyTests_CI_CD/TestReports/redfish_report.xml" --disable-warnings -rf /var/jenkins_home/workspace/PyTests_CI_CD/TestFiles/redfish_pytest.py
-    //     '''
-    //   }
-    // }
+    stage("Redfish test"){
+      steps {
+        sh '''
+         ./python_env/bin/activate
+         pytest --junit-xml="/var/jenkins_home/workspace/PyTests_CI_CD/TestReports/redfish_report.xml" --disable-warnings -rf /var/jenkins_home/workspace/PyTests_CI_CD/TestFiles/redfish_pytest.py
+        '''
+      }
+    }
     stage("Locust test") {
       steps {
         sh '''
         . /python_env/bin/activate
-        locust --headless -f /var/jenkins_home/workspace/PyTests_CI_CD/TestFiles/locustfile.py --host http://127.0.0.1:2443 --users 50 -r 10 -t 3m -s 20 --exit-code-on-error 0 --json --skip-log > /var/jenkins_home/workspace/PyTests_CI_CD/TestReports/locust_report.json
+        locust --headless -f /var/jenkins_home/workspace/PyTests_CI_CD/TestFiles/locustfile.py --host http://127.0.0.1:2443 --users 15 -r 3 -t 2m -s 20 --exit-code-on-error 0 --json --skip-log > /var/jenkins_home/workspace/PyTests_CI_CD/TestReports/locust_report.json
         '''
       }
     }
