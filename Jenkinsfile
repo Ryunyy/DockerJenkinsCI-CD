@@ -4,26 +4,6 @@ pipeline {
     buildDiscarder(logRotator(numToKeepStr:'10', artifactNumToKeepStr:'10', daysToKeepStr:'20', artifactDaysToKeepStr:'20'))
   }
   stages {
-    stage("Enviroment Configuration") {
-      when{
-        expression {
-          fileExists('/var/jenkins_home/workspace/PyTests_CI_CD/initComlpete.txt') == false
-        }
-      }
-      steps{
-        sh '''
-          apt-get update
-          apt-get install -y qemu-system-arm ipmitool python3 python3-pytest python3-loguru python3-selenium python3-locust
-
-          ipmitool -C 17 -H localhost -p 2623 -I lanplus -U root -P 0penBmc user set name 10 testuser
-          ipmitool -C 17 -H localhost -p 2623 -I lanplus -U root -P 0penBmc user set password 10 [user10]
-          ipmitool -C 17 -H localhost -p 2623 -I lanplus -U root -P 0penBmc user enable 10
-          PATH=$PATH:/var/jenkins_home/workspace/PyTests_CI_CD/MEDriver/
-
-          touch /var/jenkins_home/workspace/PyTests_CI_CD/initComlpete.txt
-        '''
-      }
-    }
     stage("Qemu launch"){
       steps{
         sh '''
