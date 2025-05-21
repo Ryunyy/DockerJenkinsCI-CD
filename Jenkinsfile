@@ -29,7 +29,7 @@ pipeline {
     stage("Locust test") {
       steps {
         sh '''
-        ./python_env/bin/activate
+        . /python_env/bin/activate
         locust --headless -f /var/jenkins_home/workspace/PyTests_CI_CD/TestFiles/locustfile.py --host http://127.0.0.1:2443 --users 50 -r 10 -t 3m -s 20 --exit-code-on-error 0 #--json --skip-log > /var/jenkins_home/workspace/PyTests_CI_CD/TestReports/locust_report.json
         '''
       }
