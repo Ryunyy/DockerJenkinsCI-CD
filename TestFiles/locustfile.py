@@ -19,7 +19,8 @@ class OBMCAPI(HttpUser):
             verify=False
         )
         jdata = response.headers
-        logger.info(jdata)
+        logger.info(response)
+        #logger.info(jdata)
 
         try:
             self.authToken = jdata['X-Auth-Token']
