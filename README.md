@@ -48,13 +48,15 @@ docker container run \
 
 ```apt-get install python3-pip```
 
-```apt-get install python3-pytest```
+```mkdir /python_venv/```
 
-```apt-get install python3-loguru```
+```python3 -m venv /python_env/```
 
-```apt-get install python3-locust```
+```source /python_env/bin/activate```
 
-```apt-get install python3-selenium```
+```pip install pytest loguru locust selenium```
+
+При запущеном QEMU:
 
 ```ipmitool -C 17 -H localhost -p 2623 -I lanplus -U root -P 0penBmc user set name 10 testuser```
 
