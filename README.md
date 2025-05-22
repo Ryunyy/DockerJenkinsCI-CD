@@ -48,6 +48,8 @@ docker container run \
 
 ```apt-get install python3-pip```
 
+```apt-get install python3-venv```
+
 ```mkdir /python_venv/```
 
 ```python3 -m venv /python_env/```
@@ -55,6 +57,8 @@ docker container run \
 ```source /python_env/bin/activate```
 
 ```pip install pytest loguru locust selenium```
+
+```qemu-system-arm -m 256 -M romulus-bmc -nographic -serial none -monitor none -drive file=/var/jenkins_home/workspace/PyTests_CI_CD/romulus/obmc-phosphor-image-romulus-20250520091100.static.mtd,format=raw,if=mtd -net nic -net user,hostfwd=:0.0.0.0:2222-:22,hostfwd=:0.0.0.0:2443-:443,hostfwd=udp:0.0.0.0:2623-:623,hostname=qemu```
 
 При запущеном QEMU:
 
