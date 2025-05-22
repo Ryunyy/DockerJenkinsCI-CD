@@ -131,3 +131,38 @@ docker container run \
 ### А также дакем разрешение на исполнение этого файла:
 
 ```chmod +x /var/jenkins_home/workspace/PyTests_CI_CD/MEDriver/msedgedriver```
+
+# Отчеты тестов
+
+- Результат выполнения тестов аутентификации OpenBMC:
+   ![ObenBMC_Auth](https://github.com/Ryunyy/DockerJenkinsCI-CD/blob/main/Images/OBMC_Auth.jpg)
+  
+- Результат выполнения тестов API Redfish:
+   ![Redfish](https://github.com/Ryunyy/DockerJenkinsCI-CD/blob/main/Images/Redfish.jpg)
+  
+- HTML отчеты нагрузочных тестов locust. Количество пользователей - 20:
+  - Таблицы нагрузочного тестирования.
+    <br><br>
+    ![Locust](https://github.com/Ryunyy/DockerJenkinsCI-CD/blob/main/Images/LocustTable20.png)
+    
+  - Графики нагрузочного тестирования.
+    <br><br>
+    ![test_redfish_run](https://github.com/Ryunyy/DockerJenkinsCI-CD/blob/main/Images/Locust20.png)
+
+- HTML отчеты нагрузочных тестов locust. Количество пользователей - 50:
+  - Таблицы нагрузочного тестирования.
+    <br><br>
+    ![Locust](https://github.com/Ryunyy/DockerJenkinsCI-CD/blob/main/Images/LocustTable50.png)
+    
+  - Графики нагрузочного тестирования.
+    <br><br>
+    ![test_redfish_run](https://github.com/Ryunyy/DockerJenkinsCI-CD/blob/main/Images/Locust50.png)
+
+- HTML отчеты нагрузочных тестов locust. Количество пользователей - 70:
+  - Таблицы нагрузочного тестирования.
+    <br><br>
+    ![Locust](https://github.com/Ryunyy/DockerJenkinsCI-CD/blob/main/Images/LocustTable70.png)
+    
+  - Графики нагрузочного тестирования.
+    <br><br>
+    ![test_redfish_run](https://github.com/Ryunyy/DockerJenkinsCI-CD/blob/main/Images/Locust70.png)
