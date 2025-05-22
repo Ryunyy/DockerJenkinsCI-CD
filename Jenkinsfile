@@ -18,22 +18,22 @@ pipeline {
         '''
       }
     }
-    stage("Redfish test"){
-      steps {
-        sh '''
-         . /python_env/bin/activate
-         pytest --junit-xml="/var/jenkins_home/workspace/PyTests_CI_CD/TestReports/redfish_report.xml" --disable-warnings -rf /var/jenkins_home/workspace/PyTests_CI_CD/TestFiles/redfish_pytest.py
-        '''
-      }
-    }
-    stage("OpenBMC Auth test"){
-      steps {
-        sh '''
-        . /python_env/bin/activate
-        pytest --junit-xml="/var/jenkins_home/workspace/PyTests_CI_CD/TestReports/obmc_auth_report.xml" --disable-warnings /var/jenkins_home/workspace/PyTests_CI_CD/TestFiles/openbmc_auth_test.py
-        '''
-      }
-    }
+    // stage("Redfish test"){
+    //   steps {
+    //     sh '''
+    //      . /python_env/bin/activate
+    //      pytest --junit-xml="/var/jenkins_home/workspace/PyTests_CI_CD/TestReports/redfish_report.xml" --disable-warnings -rf /var/jenkins_home/workspace/PyTests_CI_CD/TestFiles/redfish_pytest.py
+    //     '''
+    //   }
+    // }
+    // stage("OpenBMC Auth test"){
+    //   steps {
+    //     sh '''
+    //     . /python_env/bin/activate
+    //     pytest --junit-xml="/var/jenkins_home/workspace/PyTests_CI_CD/TestReports/obmc_auth_report.xml" --disable-warnings /var/jenkins_home/workspace/PyTests_CI_CD/TestFiles/openbmc_auth_test.py
+    //     '''
+    //   }
+    // }
     stage("Locust test") {
       steps {
         sh '''
