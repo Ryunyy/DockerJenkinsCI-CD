@@ -95,6 +95,8 @@ docker container run \
 
 ```busctl set-property xyz.openbmc_project.User.Manager/xyz/openbmc_project/user xyz.openbmc_project.User.AccountPolicy MaxLoginAttemptBeforeLockout q 100```
 
+### После этих команд не забываем завершить процесс QEMU, чтобы тесты не падали. Ну или, если не хотите, переназначайте в команде вызова QEMU другие порты. Я завершаю процесс командой ```kill <PID>```, где <PID> можно узнать по команде ```ps aux``` напротив нужного имени процесса
+
 ## Установка Microsoft Edge и его веб-драйвера
 ### В работе используется драйвер msedgedriver, поэтому нам нудно настроить сам браузер. которого по умолчанию нет. Для этого используем следующие команды, которые добавляют в пути для получения обновлений ссылку на пакеты microsoft:
 
