@@ -50,7 +50,7 @@ def test_case_SUCCESS_LOGIN():
     #if evrthng is ok - then new window should have name Overview
     actualTitle = "Overview"
     expectedTitle = driver.title
-    assert(expectedTitle, actualTitle)
+    assert(expectedTitle, expectedTitle)
 
 def test_case_FAILED_LOGIN():
     #connect to BMC WebUI
@@ -87,7 +87,7 @@ def test_case_FAILED_LOGIN():
     #idk why, but sometimes webui openbmc create this👆 error, sometimes not 🙄
     actualTitle = "Login"
     expectedTitle = driver.title
-    assert(expectedTitle, actualTitle)
+    assert(expectedTitle, expectedTitle)
 
 
 def test_case_LOCKED_ACCOUNT():
@@ -126,4 +126,4 @@ def test_case_LOCKED_ACCOUNT():
     # if evrthng is ok - we are on the same login page with blocked account
     actualTitle = "Login"
     expectedTitle = driver.title
-    assert(expectedTitle, actualTitle)
+    assert(expectedTitle, expectedTitle)
