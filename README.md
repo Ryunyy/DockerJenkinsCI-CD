@@ -125,3 +125,7 @@ docker container run \
 ### Теперь нужно добавить папку с драйвером в переменные окружения, поэтому используем команду ниже:
 
 ```PATH=$PATH:/var/jenkins_home/workspace/PyTests_CI_CD/MEDriver/```
+
+### А также дакем разрешение на исполнение этого файла:
+
+```chmod +x /var/jenkins_home/workspace/PyTests_CI_CD/MEDriver/msedgedriver```
