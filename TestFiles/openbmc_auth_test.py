@@ -4,9 +4,11 @@ from selenium.webdriver.edge.service import Service
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.action_chains import ActionChains
 import time
+import os
 
 driverPath = '/var/jenkins_home/workspace/PyTests_CI_CD/MEDriver/msedgedriver' #path to driver executable
 driverService = Service(driverPath) #service - parameter for driver initialisation
+os.chmod(driverPath, 0o755)
 options = webdriver.EdgeOptions() #creating options for insecure
 options.add_argument("headless") # run without head
 options.add_argument("disable-gpu") # run without gpu
