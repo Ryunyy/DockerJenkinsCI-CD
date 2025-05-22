@@ -16,7 +16,7 @@ options.accept_insecure_certs = True #set insecure parameter to true
 driver = webdriver.Edge(options=options,service=driverService) #driver itself
 action = ActionChains(driver) #action for performing action chains
 
-url = "https://localhost:2443/#/login"
+url = "https://localhost:2443"
 #url = "edge://settings/" #test url
 userName = "testuser" #maybe shouldn't store this as plain text. for example, create hash
 userPassword = "[user10]"
