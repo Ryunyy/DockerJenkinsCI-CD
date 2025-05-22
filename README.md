@@ -77,7 +77,7 @@ docker container run \
 ### С настройкой зависимостей закончили, теперь для успешного прохождения тестов аутентификации Selenium-а нам надо запустить QEMU из образа, который есть в репозитории и создать пользователя.
 ### Запускаем QEMU следующей командой:
 
-```qemu-system-arm -m 256 -M romulus-bmc -nographic -serial none -monitor none -drive file=/var/jenkins_home/workspace/PyTests_CI_CD/romulus/obmc-phosphor-image-romulus-20250520091100.static.mtd,format=raw,if=mtd -net nic -net user,hostfwd=:0.0.0.0:2222-:22,hostfwd=:0.0.0.0:2443-:443,hostfwd=udp:0.0.0.0:2623-:623,hostname=qemu```
+```qemu-system-arm -m 256 -M romulus-bmc -nographic -drive file=/var/jenkins_home/workspace/PyTests_CI_CD/romulus/obmc-phosphor-image-romulus-20250520091100.static.mtd,format=raw,if=mtd -net nic -net user,hostfwd=:0.0.0.0:2222-:22,hostfwd=:0.0.0.0:2443-:443,hostfwd=udp:0.0.0.0:2623-:623,hostname=qemu```
 
 ### Теперь нужно немного подождать, пока QEMU не предложет войти под пользователем root. Когда это произошло, в другом терминале (в этом же докере, но другом терминале) нужно прописать команды создания нового пользователя:
 
@@ -87,7 +87,7 @@ docker container run \
 
 3. ```ipmitool -C 17 -H localhost -p 2623 -I lanplus -U root -P 0penBmc user enable 10```
 
-### Пользователь создан и для тестов нам нужно ограничить его количество неудачных входов командой. В данной команде ему дается 3 попытки.
+### Пользователь создан и для тестов нам нужно ограничить его количество неудачных входов командой. В данной команде, которую следует выполнять в терминале, в котором запущен QEMU, ему дается 3 попытки.
 
 ```busctl set-property xyz.openbmc_project.User.Manager/xyz/openbmc_project/user xyz.openbmc_project.User.AccountPolicy MaxLoginAttemptBeforeLockout q 3```
 
