@@ -38,9 +38,9 @@ pipeline {
       steps {
         sh '''
         . /python_env/bin/activate
-        locust --headless -f /var/jenkins_home/workspace/PyTests_CI_CD/TestFiles/locustfile.py --host https:/ --users 20 -r 3 -t 2m -s 20 --exit-code-on-error 0 --json --skip-log > /var/jenkins_home/workspace/PyTests_CI_CD/TestReports/locust_report_20.json
-        locust --headless -f /var/jenkins_home/workspace/PyTests_CI_CD/TestFiles/locustfile.py --host https:/ --users 50 -r 10 -t 2m -s 20 --exit-code-on-error 0 --json --skip-log > /var/jenkins_home/workspace/PyTests_CI_CD/TestReports/locust_report_50.json
-        locust --headless -f /var/jenkins_home/workspace/PyTests_CI_CD/TestFiles/locustfile.py --host https:/ --users 70 -r 20 -t 2m -s 20 --exit-code-on-error 0 --json --skip-log > /var/jenkins_home/workspace/PyTests_CI_CD/TestReports/locust_report_70.json
+        locust --headless -f /var/jenkins_home/workspace/PyTests_CI_CD/TestFiles/locustfile.py --host https:/ --users 20 -r 3 -t 2m -s 20 --html /var/jenkins_home/workspace/PyTests_CI_CD/TestReports/locust_report_20.html --exit-code-on-error 0 --json --skip-log > /var/jenkins_home/workspace/PyTests_CI_CD/TestReports/locust_report_20.json
+        locust --headless -f /var/jenkins_home/workspace/PyTests_CI_CD/TestFiles/locustfile.py --host https:/ --users 50 -r 10 -t 2m -s 20 --html /var/jenkins_home/workspace/PyTests_CI_CD/TestReports/locust_report_50.html --exit-code-on-error 0 --json --skip-log > /var/jenkins_home/workspace/PyTests_CI_CD/TestReports/locust_report_50.json
+        locust --headless -f /var/jenkins_home/workspace/PyTests_CI_CD/TestFiles/locustfile.py --host https:/ --users 70 -r 20 -t 2m -s 20 --html /var/jenkins_home/workspace/PyTests_CI_CD/TestReports/locust_report_70.html --exit-code-on-error 0 --json --skip-log > /var/jenkins_home/workspace/PyTests_CI_CD/TestReports/locust_report_70.json
         '''
       }
     }
